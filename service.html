@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            
+        }
+
+        h1 {
+            text-align: center;
+            color: lavenderblush;
+            margin-top: 1%;
+        }
+
+        /* Header styling */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: white;
+            padding: 7px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header .logo img {
+            width: 80px;
+            height: 75px;
+        }
+
+        .header .task_bar {
+            display: flex;
+            gap: 15px;
+        }
+
+        .header .each_task a {
+            color:black;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        .header .each_task a:hover {
+            background-color: #ff6f20;
+            border-radius: 5px;
+        }
+
+        .parent-container {
+            display: flex;
+            flex-direction: column;
+            max-width: 1200px;
+            margin: 20px auto 20px auto; /* Added margin-top to push content down from header */
+            gap: 20px;
+            
+        }
+
+        .container {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            display: flex;
+            gap: 20px;
+            background-image: url(images/backroung_service.jpg);
+            opacity: 200%;
+        }
+
+        .slideshow-container {
+            position: relative;
+            max-width: 100%;
+            margin: auto;
+            width: 400px;
+            height: 300px;
+            overflow: hidden;
+        }
+
+        .mySlides, .mySlides2, .mySlides3, .mySlides4, .mySlides5, .mySlides6 {
+            display: none;
+            width: 100%;
+            height: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            object-fit: cover;
+        }
+
+        .content-container {
+            max-width: 600px;
+        }
+
+        .content-container h3 {
+            font-size: 1.8rem;
+            color: #333;
+        }
+
+        .content-container p {
+            font-size: 1rem;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .highlight {
+            color: red;
+            font-weight: bold;
+        }
+        .footer {
+    margin-top: 7%;
+    background-color: #ff6f20; /* Soft orange */
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer p {
+    margin: 5px 0;
+}
+
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <header class="header">
+        <div class="logo">
+            <img src="images/LOGO.png" alt="LOGO">
+        </div>
+        <nav class="task_bar">
+            <div class="each_task"><a href="../index.html">HOME</a></div>
+            <div class="each_task"><a href="../index.html">ABOUT US</a></div>
+            <div class="each_task"><a href="../service.html">SERVICES</a></div>
+            <div class="each_task"><a href="../login.html" target="_blank">BOOKING</a></div>
+            <div class="each_task"><a href="../contact.html">CONTACT</a></div>   
+            <div class="each_task"><a href="../login.html">LOGIN</a></div>   
+        </nav>
+    </header>
+
+    <h1 style="font-family: Verdana, Geneva, Tahoma, sans-serif; font-size: 300%; color: black;" >Services</h1>
+
+    <div class="parent-container">
+        <!-- First Container (Birthday Party) -->
+        <div class="container">
+            <div class="slideshow-container">
+                <img class="mySlides" src="images/birthdaty_party1.png" alt="Birthday Party Decoration 1">
+                <img class="mySlides" src="images/birthdaty_party2.png" alt="Birthday Party Decoration 2">
+                <img class="mySlides" src="images/birthdaty_party3.png" alt="Birthday Party Decoration 3">
+                <img class="mySlides" src="images/birthdaty_party4.png" alt="Birthday Party Decoration 4">
+            </div>
+            <div class="content-container">
+                <h3>Birthday Party Organizer</h3>
+                <p class="highlight">Looking for some best Birthday Party Ideas..? - Best Birthday Party Planner in Coimbatore</p>
+                <p>Coimbatore Event Management is a leading birthday party organizer in Coimbatore. We provide services that will make your birthday party an unforgettable one.</p>
+                <p>From midnight cake cutting to personalized gifts, we bring the awesomeness to life. We also offer services in Coimbatore, Pollachi, Ooty, and other locations in Tamil Nadu.</p>
+            </div>
+        </div>
+
+        <!-- Second Container (Puberty Ceremony) -->
+        <div class="container">
+            <div class="slideshow-container">
+                <img class="mySlides2" src="images/puberty_funtion1.png" alt="Puberty Ceremony Decoration 1">
+                <img class="mySlides2" src="images/puberty_funtion2.png" alt="Puberty Ceremony Decoration 2">
+                <img class="mySlides2" src="images/puberty_funtion3.png" alt="Puberty Ceremony Decoration 3">
+                <img class="mySlides2" src="images/puberty_funtion4.png" alt="Puberty Ceremony Decoration 4">
+                <img class="mySlides2" src="images/puberty_funtion5.png" alt="Puberty Ceremony Decoration 5">
+            </div>
+            <div class="content-container">
+                <h3>Puberty Ceremony Organizer</h3>
+                <p class="highlight">Looking for some best Function Making Ideas..? - Best Stage Decorators in Coimbatore</p>
+                <p>Our team ensures everything is handled with expertise, from stage decoration to unique culinary experiences. We provide services in Coimbatore, Pollachi, Salem, and other locations in Tamil Nadu.</p>
+            </div>
+        </div>
+
+        <!-- Third Container (Marriage Organizer) -->
+        <div class="container">
+            <div class="slideshow-container">
+                <img class="mySlides3" src="images/marrige_photo1.png" alt="Marriage Organizer Image 1">
+                <img class="mySlides3" src="images/marrige_photo2.png" alt="Marriage Organizer Image 2">
+                <img class="mySlides3" src="images/marrige_photo3.png" alt="Marriage Organizer Image 3">
+                <img class="mySlides3" src="images/marrige_photo4.png" alt="Marriage Organizer Image 4">
+                <img class="mySlides3" src="images/marrige_photo5.png" alt="Marriage Organizer Image 5">
+            </div>
+            <div class="content-container">
+                <h3>Marriage Organizer</h3>
+                <p class="highlight">Come and make your wedding a memorable one with Coimbatore Event Management …!!</p>
+                <p>We offer wedding planning services in Pollachi, Karur, Salem, Erode, and Tamil Nadu, ensuring your big day is perfectly organized.</p>
+            </div>
+        </div>
+
+        <!-- Fourth Container (Corporate Event Organizer) -->
+        <div class="container">
+            <div class="slideshow-container">
+                <img class="mySlides4" src="images/corporate1.png" alt="Corporate Event Image 1">
+                <img class="mySlides4" src="images/corporate2.png" alt="Corporate Event Image 2">
+                <img class="mySlides4" src="images/corporate3.png" alt="Corporate Event Image 3">
+                <img class="mySlides4" src="images/corporate4.png" alt="Corporate Event Image 4">
+                <img class="mySlides4" src="images/corporate5.png" alt="Corporate Event Image 5">
+            </div>
+            <div class="content-container">
+                <h3>Corporate Event Organizer</h3>
+                <p class="highlight">Welcome to Coimbatore Event Management – Best Corporate Event Organizer in Coimbatore</p>
+                <p>We are a leading corporate event management company, organizing business meetings, award functions, and more. We provide end-to-end services to ensure successful events.</p>
+            </div>
+        </div>
+
+        <!-- Fifth Container (DJ & Music Event Organizer) -->
+        <div class="container">
+            <div class="slideshow-container">
+                <img class="mySlides5" src="images/dj1.png" alt="DJ Event Image 1">
+                <img class="mySlides5" src="images/dj2.png" alt="DJ Event Image 2">
+                <img class="mySlides5" src="images/dj3.png" alt="DJ Event Image 3">
+                <img class="mySlides5" src="images/dj4.png" alt="DJ Event Image 4">
+            </div>
+            <div class="content-container">
+                <h3>DJ & Music Event Organizer</h3>
+                <p class="highlight">Best DJ and Music Organizers for Events!</p>
+                <p>We provide high-quality DJ and music services for all events, making your celebration an unforgettable one.</p>
+            </div>
+        </div>
+
+        <!-- Sixth Container (Photography Organizer) -->
+        <div class="container">
+            <div class="slideshow-container">
+                <img class="mySlides6" src="images/event1.png" alt="Photography Event Image 1">
+                <img class="mySlides6" src="images/event2.png" alt="Photography Event Image 2">
+                <img class="mySlides6" src="images/event3.png" alt="Photography Event Image 3">
+                <img class="mySlides6" src="images/event4.png" alt="Photography Event Image 4">
+                <img class="mySlides6" src="images/event5.png" alt="Photography Event Image 5">
+            </div>
+            <div class="content-container">
+                <h3>Stage Events</h3>
+                <p class="highlight">Capture your moments with the best photographers in Coimbatore!</p>
+                <p>Our professional photography services cover all types of events, from birthday parties to weddings and corporate functions, ensuring your memories are beautifully preserved.</p>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <p>&copy; 2024 Coimbatore Event Management. All rights reserved.</p>
+        <div class="address">
+            <p>Get in Touch!!! Coimbatore Event Management 9/5, Swathi Road, Opp to Corporation Boys High School, Eachanari, Coimbatore - 605 009</p>
+            <p>Call: +91 979179727 | Email: eventease@management.com</p>
+        </div>
+    </footer>
+
+    <script>
+        let slideIndex = 0;
+        let slideIndex2 = 0;
+        let slideIndex3 = 0;
+        let slideIndex4 = 0;
+        let slideIndex5 = 0;
+        let slideIndex6 = 0;
+
+        function showSlides(slidesClass, n) {
+            let slides = document.getElementsByClassName(slidesClass);
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            n++;
+            if (n > slides.length) { n = 1 }
+            slides[n - 1].style.display = "block";
+            return n;
+        }
+
+        function carousel() {
+            slideIndex = showSlides("mySlides", slideIndex);
+            slideIndex2 = showSlides("mySlides2", slideIndex2);
+            slideIndex3 = showSlides("mySlides3", slideIndex3);
+            slideIndex4 = showSlides("mySlides4", slideIndex4);
+            slideIndex5 = showSlides("mySlides5", slideIndex5);
+            slideIndex6 = showSlides("mySlides6", slideIndex6);
+            setTimeout(carousel, 3000);
+        }
+
+        carousel();
+    </script>
+</body>
+</html>

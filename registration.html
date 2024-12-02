@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="registration.css">
+    <script>
+        function redirectToLogin(event) {
+            event.preventDefault(); // Prevent the form from submitting normally
+            // Perform any validation here (optional)
+
+            // Redirect to login page
+            window.location.href = "login.html";
+        }
+    </script>
+</head><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="registration.css">
+    <style>
+        .error {
+            color: red;
+        }
+        .mandatory {
+            color: red;
+        }
+    </style>
+    <script>
+        // Redirect to login page after successful registration
+        function redirectToLogin(event) {
+            event.preventDefault(); // Prevent the form from submitting normally
+
+            // Perform validation before redirect
+            if (validateForm()) {
+                // Redirect to login page
+                window.location.href = "login.html";
+            }
+        }
+
+        // Validate form before submission
+        function validateForm() {
+            let valid = true;
+            const firstName = document.getElementById("first_name").value.trim();
+            const lastName = document.getElementById("last_name").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const password = document.getElementById("password").value.trim();
+            const confirmPassword = document.getElementById("confirm_password").value.trim();
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            const passwordPattern = /^[A-Za-z0-9#_.$@]+$/;
+            const phonePattern = /^\d{2} \d{10}$/;
+            const phone = document.getElementById("phone").value.trim();
+
+            // Clear previous errors
+            document.querySelectorAll('.error').forEach(error => error.textContent = '');
+
+            // First name validation
+            if (firstName.length < 2 || firstName.length > 15) {
+                document.getElementById("firstNameError").textContent = "First Name must be between 2 and 15 characters.";
+                valid = false;
+            }
+
+            // Last name validation
+            if (lastName.length < 2 || lastName.length > 15) {
+                document.getElementById("lastNameError").textContent = "Last Name must be between 2 and 15 characters.";
+                valid = false;
+            }
+
+            // Email validation
+            if (!emailPattern.test(email)) {
+                document.getElementById("emailError").textContent = "Please enter a valid email address.";
+                valid = false;
+            }
+
+            // Password validation
+            if (password.length < 8 || password.length > 16 || !passwordPattern.test(password) || !hasRequiredCharacters(password)) {
+                document.getElementById("passwordError").textContent = "Password must be 8-16 characters long, include an uppercase letter, a lowercase letter, a digit, and a special character (#, _, ., $, @).";
+                valid = false;
+            }
+
+            // Confirm password validation
+            if (password !== confirmPassword) {
+                document.getElementById("confirmPasswordError").textContent = "Passwords do not match.";
+                valid = false;
+            }
+
+            // Phone number validation
+            if (!phonePattern.test(phone)) {
+                document.getElementById("phoneError").textContent = "Please enter a valid phone number (xx xxxx xxxx).";
+                valid = false;
+            }
+
+            return valid;
+        }
+
+        // Check if password contains required characters
+        function hasRequiredCharacters(password) {
+            const hasUppercase = /[A-Z]/.test(password);
+            const hasLowercase = /[a-z]/.test(password);
+            const hasDigit = /\d/.test(password);
+            const hasSpecial = /[#_.$@]/.test(password);
+            return hasUppercase && hasLowercase && hasDigit && hasSpecial;
+        }
+    </script>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <img src="images/LOGO.png" alt="LOGO" style="width: 80px; height: 75px;">
+        </div>
+        <nav class="task_bar">
+            <div class="each_task"><a href="../index.html">Home</a></div>
+            <div class="each_task"><a href="index.html">About us</a></div>
+            <div class="each_task"><a href="service.html">Services</a></div>
+            <div class="each_task"><a href="contact.html">Contact us</a></div>
+            <div class="each_task"><a href="index.html">Log out</a></div>   
+        </nav>
+    </header>
+
+    <div class="container">
+        <h2>Registration Form</h2>
+        <form onsubmit="redirectToLogin(event)">
+            <label for="first_name">First Name: <span class="mandatory">*</span></label>
+            <input type="text" id="first_name" name="first_name" required placeholder="E.g. John">
+            <span id="firstNameError" class="error"></span><br><br>
+
+            <label for="last_name">Last Name: <span class="mandatory">*</span></label>
+            <input type="text" id="last_name" name="last_name" required placeholder="E.g. Doe">
+            <span id="lastNameError" class="error"></span><br><br>
+
+            <label for="email">Email Address: <span class="mandatory">*</span></label>
+            <input type="email" id="email" name="email" required placeholder="E.g. john@doe.com">
+            <span id="emailError" class="error"></span><br><br>
+
+            <label for="password">Password: <span class="mandatory">*</span></label>
+            <input type="password" id="password" name="password" required placeholder="Enter your password">
+            <span id="passwordError" class="error"></span><br><br>
+
+            <label for="confirm_password">Confirm Password: <span class="mandatory">*</span></label>
+            <input type="password" id="confirm_password" name="confirm_password" required placeholder="Confirm your password">
+            <span id="confirmPasswordError" class="error"></span><br><br>
+
+            <label for="dob">Date of Birth: <span class="mandatory">*</span></label>
+            <input type="date" id="dob" name="dob" required><br><br>
+
+            <label for="address">Address: <span class="mandatory">*</span></label>
+            <input type="text" id="address" name="address" required placeholder="E.g. 123 Street Name, City"><br><br>
+
+            <label for="phone">Phone Number: <span class="mandatory">*</span></label>
+            <input type="tel" id="phone" name="phone" required placeholder="E.g. xx xxxx xxxx">
+            <span id="phoneError" class="error"></span><br><br>
+
+            <div class="checkbox-container">
+                <input type="checkbox" id="confirmation" name="confirmation" required>
+                <label class="confirmation-label" for="confirmation">I confirm that the provided information is correct to the best of my knowledge.</label>
+            </div><br>
+
+            <input type="submit" value="Sign Up">
+        </form>
+    </div>
+</body>
+</html>

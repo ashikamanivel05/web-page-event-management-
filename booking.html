@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Page</title>
+    <link rel="stylesheet" href="booking.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border: 2px solid #5A2D82;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2, h3 {
+            text-align: center;
+            color: #5A2D82;
+        }
+
+        .food-service-options {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .food-option {
+            text-align: center;
+            width: 18%;
+            border: 1px solid #5A2D82;
+            border-radius: 5px;
+            padding: 10px;
+            transition: transform 0.2s;
+        }
+
+        .food-option:hover {
+            transform: scale(1.05);
+        }
+
+        .food-option img {
+            width: 100px;
+            height: 100px;
+            border-radius: 5px;
+        }
+
+        .food-option div {
+            font-weight: bold;
+            margin-top: 10px;
+            color: #5A2D82;
+        }
+
+        .menu-section {
+            margin-top: 30px;
+        }
+
+        .menu-time {
+            margin: 15px 0;
+        }
+
+        .menu-items {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .menu-item {
+            margin: 5px;
+            text-align: center;
+            width: 30%;
+            border: 1px solid #5A2D82;
+            border-radius: 5px;
+            padding: 1px;
+            transition: transform 0.2s;
+        }
+
+        .menu-item:hover {
+            transform: scale(1.05);
+        }
+
+        input[type="checkbox"] {
+            margin-right: 5px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        textarea {
+            width: 100%;
+            height: 100px;
+            margin-top: 10px;
+            border: 1px solid #5A2D82;
+            border-radius: 5px;
+            padding: 10px;
+            resize: vertical;
+        }
+
+        .submit-button {
+            background-color: #5A2D82;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            display: block;
+            margin: 20px auto;
+        }
+
+        .submit-button:hover {
+            background-color: #4b1d69;
+        }
+
+    </style>
+    <script>
+        function toggleMenu(mealType) {
+            const items = document.querySelector(`.${mealType}-items`);
+            items.classList.toggle('hidden');
+        }
+
+        let dayCount = 1;
+
+        function addGuestDay() {
+            dayCount++;
+            const guestDiv = document.getElementById('guest-details');
+            const newField = document.createElement('div');
+            newField.innerHTML = `
+                <label for="guests_day${dayCount}">Number of Guests (Day ${dayCount}): <span class="mandatory">*</span></label>
+                <input type="number" id="guests_day${dayCount}" name="guests_day${dayCount}" required placeholder="E.g. 100">
+            `;
+            guestDiv.appendChild(newField);
+        }
+    </script>
+</head>
+<body>
+
+<div class="container">
+    <h1 style="padding-bottom: 20cm;">hello</h1>
+    <h2>Event Booking Form</h2>
+    <form action="#" method="post">
+        <!-- Personal Information -->
+        <label for="name">Name of the Person: <span class="mandatory">*</span></label>
+        <input type="text" id="name" name="name" required placeholder="E.g. John Doe">
+
+        <label for="email">Email ID: <span class="mandatory">*</span></label>
+        <input type="email" id="email" name="email" required placeholder="E.g. john@doe.com">
+
+        <label for="phone">Phone Number: <span class="mandatory">*</span></label>
+        <input type="tel" id="phone" name="phone" required placeholder="E.g. xx xxxx xxxx">
+
+        <label for="alt_phone">Additional Phone Number (Optional):</label>
+        <input type="tel" id="alt_phone" name="alt_phone" placeholder="E.g. xx xxxx xxxx">
+        <!-- Services Dropdown -->
+        <label for="services">Select Event Service: <span class="mandatory">*</span></label>
+        <select id="services" name="services" required>
+            <option value="Select Event">Select Event</option>
+            <option value="Birthday Party">Birthday Party</option>
+            <option value="Marriage Function">Marriage Function</option>
+            <option value="Reception">Reception</option>
+            <option value="Puberty Function">Puberty Function</option>
+            <option value="Corporate Event">Corporate Event</option>
+            <option value="Stage Event">Stage Event</option>
+        </select>
+
+        <!-- Event Details -->
+        <label for="event_place">Place of the Event: <span class="mandatory">*</span></label>
+        <input type="text" id="event_place" name="event_place" required placeholder="E.g. Event Hall, City">
+
+        <label for="event_start">Event Start Date: <span class="mandatory">*</span></label>
+        <input type="date" id="event_start" name="event_start" required>
+
+        <label for="event_end">Event End Date: <span class="mandatory">*</span></label>
+        <input type="date" id="event_end" name="event_end" required>
+
+        <!-- Guest Count (Based on Event Days) -->
+        <div id="guest-details">
+            <label for="guests_day1">Number of Guests (Day 1): <span class="mandatory">*</span></label>
+            <input type="number" id="guests_day1" name="guests_day1" required placeholder="E.g. 100">
+        </div>
+
+        <!-- Add more guest count fields depending on event days -->
+        <button type="button" onclick="addGuestDay()">Add Day for Guests</button>
+
+        <!-- Additional Information -->
+        <h3>Additional Information</h3>
+        <label style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Select Food Service:</label>
+        <div class="food-service-options">
+            <div class="food-option">
+                <img src="images/food1.png" alt="Buffet">
+                <div>Buffet</div>
+                <input type="checkbox" name="food_service" value="Buffet">
+            </div>
+            <div class="food-option">
+                <img src="images/food2.png" alt="Plated Service">
+                <div>Plated Service</div>
+                <input type="checkbox" name="food_service" value="Plated Service">
+            </div>
+            <div class="food-option">
+                <img src="images/food3.png" alt="BBQ">
+                <div>BBQ</div>
+                <input type="checkbox" name="food_service" value="BBQ">
+            </div>
+            <div class="food-option">
+                <img src="images/food4.png" alt="Cocktail">
+                <div>Cocktail</div>
+                <input type="checkbox" name="food_service" value="Cocktail">
+            </div>
+            <div class="food-option">
+                <img src="images/food5.png" alt="Dessert Table">
+                <div>Dessert Table</div>
+                <input type="checkbox" name="food_service" value="Dessert Table">
+            </div>
+        </div>
+
+        <!-- Food Menu Section -->
+        <div class="menu-section">
+            <h3>Menu Selection</h3>
+            <div class="menu-time">
+                <label for="breakfast">Breakfast :</label>
+                <button type="button" onclick="toggleMenu('breakfast')">View Menu</button>
+                <div class="menu-items hidden breakfast-items">
+                    <div class="menu-item">
+                        <input type="checkbox" id="breakfast1" name="breakfast" value="Idli">
+                        <label for="breakfast1">Idli</label>
+                    </div>
+                    <div class="menu-item">
+                        <input type="checkbox" id="breakfast2" name="breakfast" value="Dosa">
+                        <label for="breakfast2">Dosa</label>
+                    </div>
+                    <div class="menu-item">
+                        <input type="checkbox" id="breakfast3" name="breakfast" value="Vada">
+                        <label for="breakfast3">Vada</label>
+                    </div>
+                    <div class="menu-item">
+                        <input type="checkbox" id="dinner1" name="dinner" value="Paneer Tikka">
+                        <label for="dinner1">Paneer Tikka</label>
+                    </div>
+                    <div class="menu-item">
+                        <input type="checkbox" id="dinner2" name="dinner" value="Butter Chicken">
+                        <label for="dinner2">Butter Chicken</label>
+                    </div>
+                    <div class="menu-item">
+                        <input type="checkbox" id="dinner3" name="dinner" value="Mutton Rogan Josh">
+                        <label for="dinner3">Mutton Rogan Josh</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-time">
+                <label for="afternoon">Afternoon:</label>
+                <button type="button" onclick="toggleMenu('afternoon')">View Menu</button>
+                <div class="menu-items hidden afternoon-items">
+                    <div class="menu-item">
+                        <input type="checkbox" id="afternoon1" name="afternoon" value="Veg Biryani">
+                        <label for="afternoon1">Vegetable Biryani</label>
+                    </div>
+                    <div class="menu-item">
+                        <input type="checkbox" id="afternoon2" name="afternoon" value="Paneer Butter Masala">
+                        <label for="afternoon2">Paneer Butter Masala</label>
+                    </div>
+                    <div class="menu-item">
+                        <input type="checkbox" id="afternoon3" name="afternoon" value="Kadai Vegetable">
+                        <label for="afternoon3">Kadai Vegetable</label>
+                    </div>
+                    <div class="menu-item">
+                        <input type="checkbox" id="afternoon1" name="afternoon" value="Veg Biryani">
+                        <label for="afternoon1">Vegetable Biryani</label>
+                    </div>
+                    <div class="menu-item">
+                        <input type="checkbox" id="afternoon2" name="afternoon" value="Paneer Butter Masala">
+                        <label for="afternoon2">Paneer Butter Masala</label>
+                    </div>
+                    <div class="menu-item">
+                        <input type="checkbox" id="afternoon3" name="afternoon" value="Kadai Vegetable">
+                        <label for="afternoon3">Kadai Vegetable</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-time">
+                <label for="dinner">Dinner:&emsp;&nbsp;</label>
+                <button type="button" onclick="toggleMenu('dinner')">View Menu</button>
+                <div class="menu-items hidden dinner-items">
+                    <div class="menu-item">
+                        <input type="checkbox" id="dinner1" name="dinner" value="Paneer Tikka">
+                        <label for="dinner1">Paneer Tikka</label>
+                    </div>
+                    <div class="menu-item">
+                        <input type="checkbox" id="dinner2" name="dinner" value="Butter Chicken">
+                        <label for="dinner2">Butter Chicken</label>
+                    </div>
+                    <div class="menu-item">
+                        <input type="checkbox" id="dinner3" name="dinner" value="Mutton Rogan Josh">
+                        <label for="dinner3">Mutton Rogan Josh</label>
+                    </div>
+                    <div class="menu-item">
+                        <input type="checkbox" id="dinner1" name="dinner" value="Paneer Tikka">
+                        <label for="dinner1">Paneer Tikka</label>
+                    </div>
+                    <div class="menu-item">
+                        <input type="checkbox" id="dinner2" name="dinner" value="Butter Chicken">
+                        <label for="dinner2">Butter Chicken</label>
+                    </div>
+                    <div class="menu-item">
+                        <input type="checkbox" id="dinner3" name="dinner" value="Mutton Rogan Josh">
+                        <label for="dinner3">Mutton Rogan Josh</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Additional Questions -->
+        <h3>Additional Questions</h3>
+        <label for="decorations">Will you require decorations? <span class="mandatory">*</span></label>
+        <select id="decorations" name="decorations" required>
+            <option value="#"></option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select>
+
+        <label for="invitations">Will you require invitations? <span class="mandatory">*</span></label>
+        <select id="invitations" name="invitations" required>
+            <option value="#"></option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select>
+
+        <label for="payment_method">Payment Method: <span class="mandatory">*</span></label>
+        <select id="payment_method" name="payment_method" required>
+            <option value="#"></option>
+            <option value="credit_card">Credit Card</option>
+            <option value="debit_card">Debit Card</option>
+            <option value="cash">Cash</option>
+            <option value="online">Online Transfer</option>
+        </select>
+
+        <label>Will you pay the full amount or make an advance payment? <span class="mandatory">*</span></label>
+        <label><input type="radio" name="payment_type" value="full" required> Full Amount</label>
+        <label><input type="radio" name="payment_type" value="advance" required> Advance Payment</label>
+
+        <input class="submit-button" type="submit" value="Book the event">
+    </form>
+</div>
+
+</body>
+</html>

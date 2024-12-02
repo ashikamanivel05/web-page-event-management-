@@ -1,0 +1,121 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f8f8;
+    color: #333;
+    margin: 0;
+}
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    padding: 7px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header .logo img {
+    width: 80px;
+    height: 75px;
+}
+
+.header .task_bar {
+    display: flex;
+    gap: 15px;
+}
+
+.header .each_task a {
+    color:black;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.header .each_task a:hover {
+    background-color: #ff6f20;
+    border-radius: 5px;
+}
+.container {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 300px;
+    height: 3cm;
+    padding-bottom: 13%;
+    margin: 50px auto; /* Centering */
+    text-align: center;
+}
+
+h2 {
+    color: #ff6f20; /* Soft orange */
+    margin-bottom: 20px;
+}
+
+.input-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 6px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.button-group {
+    margin: 20px 0;
+}
+
+.button-group button {
+    background-color: #ff6f20; /* Soft orange */
+    padding-top: 50%;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+}
+
+.button-group button:hover {
+    background-color: #e65c00; /* Darker shade of orange */
+}
+
+.links {
+    margin-top: 10px;
+}
+
+.links a {
+    color: #ff6f20; /* Soft orange */
+    text-decoration: none;
+}
+
+.links a:hover {
+    text-decoration: underline;
+}
+
+.footer {
+    margin-top: 7%;
+    background-color: #ff6f20; /* Soft orange */
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer p {
+    margin: 5px 0;
+}

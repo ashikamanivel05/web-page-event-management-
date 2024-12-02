@@ -1,0 +1,132 @@
+/* Overall page styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding-top: 1px; /* Added padding to push content below sticky header */
+    background-color: #f0f0f0;
+}
+
+/* Background image styling */
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("images/backround_registration.png");
+    background-size: cover;
+    background-position: center;
+    filter: blur(1px);
+    z-index: -1;
+}
+
+/* Container for the registration form */
+.container {
+    max-width: 600px;
+    width: 100%;
+    padding: 20px;
+    border-radius: 12px;
+    background-color: rgba(255, 255, 255, 0.576);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+    margin: 0 auto; /* Center the container */
+}
+
+/* Heading styling */
+h2 {
+    text-align: center;
+    color: #ff6f20; 
+    margin-bottom: 20px;
+}
+
+/* Label styling */
+label {
+    display: block;
+    margin: 10px 0 5px;
+    color: #333;
+}
+
+/* Input fields styling */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="date"],
+input[type="tel"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ff6f20;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* Checkbox styling */
+input[type="checkbox"] {
+    margin-right: 5px;
+    vertical-align: middle;
+}
+
+/* Checkbox container */
+.checkbox-container {
+    margin: 15px 0;
+    display: flex;
+    align-items: center;
+}
+
+/* Submit button styling */
+input[type="submit"] {
+    background-color: #ff6f20; 
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+input[type="submit"]:hover {
+    background-color: #e65a00;
+}
+
+/* Header styling for sticky navigation */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ff6f20;
+    padding: 10px 5px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional shadow for better visibility */
+}
+
+/* Logo styling */
+.header .logo img {
+    width: 80px;
+    height: 75px;
+}
+
+/* Taskbar (navigation) styling */
+.header .task_bar {
+    display: flex;
+    gap: 15px;
+}
+
+/* Navigation links styling */
+.header .each_task a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover effect for navigation links */
+.header .each_task a:hover {
+    background-color: #e65a00;
+    border-radius: 5px;
+}
+.mandatory{
+    color: red;
+}

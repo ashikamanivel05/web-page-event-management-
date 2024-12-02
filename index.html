@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Ease Management</title>
+    <link rel="stylesheet" href="landing.css">
+    <style>
+        /* Basic styles for the header */
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: white;
+            padding: 10px 20px;
+            position: sticky;
+            top: 0;
+            width: 39cm;
+            z-index: 1000;
+        }
+
+        .header img {
+            width: 54px;
+            height: 50px;
+        }
+
+        .task_bar {
+            display: flex;
+            gap: 20px;
+        }
+
+        .each_task a {
+            color: black; /* Changed to black for better visibility on white */
+            text-decoration: none;
+            font-size: 18px;
+            padding: 10px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .each_task a:hover {
+            background-color: orange; /* Change background color on hover */
+            color: black; /* Change text color on hover */
+            border-radius: 5px; /* Optional: round corners on hover */
+        }
+
+        /* Slideshow styles */
+        .slideshow-container {
+            position: relative;
+            width: 100%;
+            height: 700px; /* Fixed height */
+            overflow: hidden;
+        }
+
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease;
+        }
+
+        .active {
+            opacity: 1; /* Show active slide */
+        }
+
+        /* Middle content */
+        .middle {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .services {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .each-service {
+            text-align: center;
+            width: 150px; /* Fixed width for circle */
+            height: 150px; /* Fixed height for circle */
+            border: 2px solid #000; /* Border color */
+            border-radius: 50%; /* Make it circular */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .each-service img {
+            width: 60px; /* Size of the logo */
+            height: 60px; /* Size of the logo */
+            margin-bottom: 10px; /* Space between logo and title */
+        }
+
+        .event-name {
+            margin: 0; /* Remove any default margin */
+            font-size: 16px; /* Font size for event names */
+            text-align: center; /* Center the text */
+        }
+
+        /* Footer styles */
+        .footer {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .footer-logo {
+            width: 80px; /* Adjust logo size in footer */
+        }
+
+        /* Recent world images styles */
+        .recent-world {
+            display: flex;
+            justify-content: center;
+            gap: 20px; /* Space between images */
+            margin: 20px 0; /* Space around the section */
+        }
+
+        .recent-image {
+            text-align: center; /* Center the text below the image */
+            border: 1px solid #ccc; /* Box border */
+            border-radius: 8px; /* Rounded corners */
+            padding: 10px; /* Padding inside the box */
+            width: 250px; /* Width of the box */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Optional: box shadow */
+        }
+
+        .recent-world img {
+            width: 100%; /* Responsive width for images */
+            height: 80%; /* Maintain aspect ratio */
+            border-radius: 4px; /* Rounded corners for images */
+        }
+        /* Customer Reviews Section */
+.customer-reviews {
+    background-color: #f9f9f9;
+    padding: 40px 20px;
+}
+
+.reviews-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.review-box {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 300px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.review-box p {
+    font-style: italic;
+    color: #555;
+}
+
+.reviewer {
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.reviewer img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.reviewer h4 {
+    margin: 0;
+    font-size: 16px;
+    color: #333;
+}
+
+.stars {
+    color: orange;
+}
+
+    </style>
+</head>
+<body>
+
+    <!-- Header and navigation -->
+    <div class="header">
+        <img src="images/LOGO.png" style="width: 64px; height: 53px;" alt="LOGO">
+        <div class="task_bar">
+            <div class="each_task"><a href="../index.html">HOME</a></div>
+            <div class="each_task"><a href="../index.html">ABOUT US</a></div>
+            <div class="each_task"><a href="../service.html">SERVICES</a></div>
+            <div class="each_task"><a href="../login.html" target="_blank">BOOKING</a></div>
+            <div class="each_task"><a href="../contact.html">CONTACT</a></div>   
+            <div class="each_task"><a href="../login.html">LOGIN</a></div>
+        </div>
+    </div>
+
+    <!-- Slideshow container -->
+    <div class="slideshow-container">
+        <div class="slide active">
+            <img src="images/bg1.jpeg" alt="Background 1" style="width: 100%; height: 90%; object-fit: cover;">
+        </div>
+        <div class="slide">
+            <img src="images/bg2.jpeg" alt="Background 2" style="width: 100%; height: 90%; object-fit: cover;">
+        </div>
+        <div class="slide">
+            <img src="images/bg3.jpeg" alt="Background 3" style="width: 100%; height: 90%; object-fit: cover;">
+        </div>
+        <div class="slide">
+            <img src="images/bg4.jpeg" alt="Background 4" style="width: 100%; height: 90%; object-fit: cover;">
+        </div>
+    </div>
+    <h1 style="font-size: 70px; text-align: center;">EVENT EASE MANAGEMENT</h1>
+    <!-- Recent world images section -->
+    <h2 style="text-align: center;">Our Recent Works</h2>
+    <div class="recent-world">
+        <div class="recent-image">
+            <img src="images/recent1.png" alt="Recent World 1">
+            <p>House Warming in Othakalmandapam </p>
+        </div>
+        <div class="recent-image">
+            <img src="images/recent2.png" alt="Recent World 2">
+            <p>Birthday Party in Ukkadam</p>
+        </div>
+        <div class="recent-image">
+            <img src="images/recent3.png" alt="Recent World 3">
+            <p>Reception Near Beach</p>
+        </div>
+        <div class="recent-image">
+            <img src="images/recent4.png" alt="Recent World 4">
+            <p>Company Get to Gether in Gandhipuram</p>
+        </div>
+    </div>
+    <!-- Customer Reviews Section -->
+
+
+    <!-- Event ease management title and services -->
+    <!-- Event ease management title and services -->
+<div class="middle">
+    <div class="services">
+        <div class="each-service">
+            <a href="service.html" style="text-decoration: none;"> <!-- Link to Birthday Party page -->
+                <img src="images/birthday-cake-icon-1.png" alt="Birthday">
+                <h4 class="event-name" style="color: black; font-weight: 100;">Birthday Party</h4>
+            </a>
+        </div>
+        <div class="each-service">
+            <a href="service.html" style="text-decoration: none;"> <!-- Link to Marriage Functions page -->
+                <img src="images/marriae_function-icon2.png" alt="Marriage">
+                <h4 class="event-name" style="color: black; font-weight: 100;">Marriage Functions</h4>
+            </a>
+        </div>
+        <div class="each-service">
+            <a href="service.html" style="text-decoration: none;"> <!-- Link to Puberty Function page -->
+                <img src="images/pubery_functin_icon3.png" alt="Puberty">
+                <h4 class="event-name" style="color: black; font-weight: 100;">Puberty Function</h4>
+            </a>
+        </div>
+        <div class="each-service">
+            <a href="service.html" style="text-decoration: none;"> <!-- Link to Receptions page -->
+                <img src="images/reception_icon4.png" alt="Receptions">
+                <h4 class="event-name" style="color: black; font-weight: 100;">Receptions</h4>
+            </a>
+        </div>
+        <div class="each-service">
+            <a href="service.html" style="text-decoration: none;"> <!-- Link to Corporate Events page -->
+                <img src="images/corporate_event_icon-5.png" alt="Corporate Events">
+                <h4 class="event-name" style="color: black; font-weight: 100;">Corporate Events</h4>
+            </a>
+        </div>
+        <div class="each-service">
+            <a href="service.html" style="text-decoration: none;"> <!-- Link to House Warming page -->
+                <img src="images/house_warming_icon6.png" alt="House Warming">
+                <h4 class="event-name" style="color: black; font-weight: 100;">House Warming</h4>
+            </a>
+        </div>
+        <div class="each-service">
+            <a href="service.html" style="text-decoration: none;"> <!-- Link to Stage Event page -->
+                <img src="images/stage_event_icon7.png" alt="Stage Event">
+                <h4 class="event-name" style="color: black; font-weight: 100;">Stage Event</h4>
+            </a>
+        </div>
+    </div>
+</div>
+
+
+    <!-- Content about the event management -->
+    <div class="next_middle">
+        <div class="box1">
+            <p>Established in 2010, Coimbatore Event Management is a trusted event management company offering a variety of services, ranging from personal events like weddings and birthday parties to large-scale corporate functions. We provide one-stop solutions for all your event needs.</p>
+        </div>
+        <div class="box2">
+            <p>Our experienced team continuously innovates to provide the best themes, décor, and event planning. We strive to ensure that every event is customized to meet your preferences and budget, helping to create a unique and memorable experience for you and your guests.</p>
+        </div>
+        <div class="box1">
+            <p>Our goal is to deliver impeccable service and make your event the talk of the town. We pride ourselves on building lasting relationships with our clients by turning their dream events into reality through passion, integrity, and dedication.</p>
+        </div>
+    </div>
+    <hr>
+    <div class="customer-reviews">
+        <h2 style="text-align: center;">Customer Reviews</h2>
+        <div class="reviews-container">
+            <div class="review-box">
+                <p>“Best event management, They did an amazing job on our wedding. We were 100% satisfied with their teamwork. Perfect work at an affordable price. The DJ was unforgettable. Many thanks to the Purple7 team.”</p>
+                <div class="reviewer">
+                    <img src="images/reviewer1.png" alt="Reviewer 1">
+                    <div>
+                        <h4>Karthick</h4>
+                        <div class="stars">
+                            ★★★★★
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="review-box">
+                <p>“Recently we hired Purple7 for our corporate event, and Purple7 offered us the customised solution as per our specific need with utmost care and diligence within the budget quoted. Highly professional in the way they executed our events.”</p>
+                <div class="reviewer">
+                    <img src="images/reviewer2.png" alt="Reviewer 2">
+                    <div>
+                        <h4>Rahman</h4>
+                        <div class="stars">
+                            ★★★★★
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="review-box">
+                <p>“Super event management company. Very new advanced items there. Skilled workers. They have a lot of ideas and humble persons. They deal with all types of events and their management. Easy to find out, nearby the roadside.”</p>
+                <div class="reviewer">
+                    <img src="images/reviewer3.png" alt="Reviewer 3">
+                    <div>
+                        <h4>Maria</h4>
+                        <div class="stars">
+                            ★★★★½
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+
+
+    <!-- Footer section -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="images/LOGO.png" alt="Footer Logo" class="footer-logo">
+            </div>
+
+            <div class="footer-about">
+                <p style="text-align: center;">
+                    Coimbatore Event Management works with you to deliver your events anywhere around Coimbatore, 
+                    offering the highest standards, attention to detail, and a flexible, consultative approach providing 
+                    as little or as much help as you need to fully support your important event.
+                </p>
+                <p style="text-align: center; padding-top: 0;">
+                    We aim to make every event unique and memorable, ensuring client satisfaction from start to finish.
+                </p>
+            </div>
+
+            <div class="footer-contact">
+                <p>Address: Coimbatore, India</p>
+                <p>Phone: +91 9876543210</p>
+                <p>&copy; 2024 Event Ease Management. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        let slideIndex = 0;
+        const slides = document.querySelectorAll('.slide');
+
+        function showSlides() {
+            slides.forEach((slide, index) => {
+                slide.classList.remove('active');
+            });
+            slideIndex++;
+            if (slideIndex > slides.length) { slideIndex = 1; }
+            slides[slideIndex - 1].classList.add('active');
+            setTimeout(showSlides, 3000); // Change slide every 3 seconds
+        }
+
+        showSlides(); // Initial call to show slides
+    </script>
+
+</body>
+</html>
